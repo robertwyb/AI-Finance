@@ -1,0 +1,77 @@
+Perform a single factor analysis of the 28 Dow Jones Index stocks.
+
+Start from PCA_indu_incomplete, where
+we use as guidance the yield curve pca analysis notebook 
+(HomeworkPCAIndu\YieldCurve_PCA_Part2_UPLOAD\PCA UK Yield Curve_mod.ipynb)
+but change the data from rates to stock prices.
+So, instead of using "GLC Nominal month end data_1970 to 2015.xlsx" 
+to import the 20 UK spot rates into a dataframe,
+we import instead "indu_dly.csv" containing the 28 Dow Jones Index stocks into a dataframe.
+
+Instead of using linear algebra to do an analysis with PCA like we do with the yield curve rates,
+now we will use scikit-learn's PCA model to analyze the stock returns.
+
+So:
+After uploading the 28 Dow Jones Index stock prices.
+Turn them into percent returns, save the returns into a dataframe called df (after dropping any NANs).
+You will use the percent returns as input to a scikit-learn PCA model (use the df as input to PCA).
+Remember PCA centers the returns automatically, so
+there is no need to apply scaling it the returns in df.
+
+Using Scikit-Learn PCA:
+Run a PCA analysis of the returns of the 28 Dow Jones stocks, 
+similar to the one done for the 20 UK spot rates:
+
+Calculate the eigenvalues (obtain them from the fitted pca model).
+Calculate the eigenvectors (obtain them from the fitted pca model).
+Calculate the first principal component projection returns (using the appropriate method of the pca model) 
+Call them pc1_proj.
+
+To be clear: by "projection" returns above
+we mean the transformed "Z" returns in slide 28 of 4.PCAInMoreDepth.pptx 
+not the reconstructed "X_hat" returns in slide 29 of 4.PCAInMoreDepth.pptx 
+
+Separately, 
+Upload the Dow Jones Index ("indu_index_dly.csv") prices which
+stands as proxy for "the market as a whole."
+Turn them into percent returns. 
+Call these returns indu_index.
+
+Calculate the correlation of the 2 percent returns series (pc1_proj and indu_index): 
+it should be high.
+
+Calculate the explained variance (in percent) of the first eigenvector (1).
+Working backwards from the all principal component projections,
+calculate their covariance matrix, and 
+calculate the variance (in percent) of the first component projection (2).
+(1) and (2) should be the same.
+
+The Dow Jones Index is a proxy for "the stock market".
+pc1_proj is the returns of this "market".
+This makes sense:
+The most important Fama-French factor is also the returns of this "market":
+"R-m minus R-f" stands for "excess returns of the market (over the risk-free rate)"
+pc1_proj is highly correlated with "R-m minus R-f".
+
+Now calculate the betas.
+
+Let us calculate the betas using regression:
+Import sklearn.linear_model import LinearRegression.
+Declare an empty list and call it betas_by_regression.
+Set up a loop that takes the data df containing the percent returns, and
+for every column in the df,
+runs a linear regression that fits:
+as X input: the pc1_proj (applying reshape(-1,1)), and 
+as y target: the df[column].
+Append the regression coefficient reg.coef_ into betas_by_regression.
+
+Let us calculate the betas using eigenvalues:
+Take the topmost row of the eigenvectors returned by scikit-learn pca.
+save it into betas_by_pc1_eigenvector.
+Compare betas_by_regression with betas_by_pc1_eigenvector.
+They should be the same.
+
+
+
+
+

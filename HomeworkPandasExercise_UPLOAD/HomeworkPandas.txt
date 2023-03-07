@@ -1,0 +1,22 @@
+
+Read dfP_RegressionChannelSimple.xlsx, and
+compare it with RegressionChannelSimple.py which was covered in this presentation.
+
+Read dfP_moving_average_crossover_simple.xlsx, and
+compare it with moving_average_crossover_simple_incomplete.py
+You will notice that we wrote some comments with instructions for you to write code.
+Please write the missing lines.
+You will not get exactly the same result by the Python program
+as the Excel spreadsheet but it should be close 
+(there is a difference in Excel and Python date processing functions that 
+results in a difference in the number of years that affects the results).
+
+
+As guidance:
+Use the Spyder variable explorer.
+Use the CheatSheets included in the materials for this session:
+Miscellaneous\CheatSheets\NumpyPandasMatplotlib.pdf
+Miscellaneous\CheatSheets\CheatSheetPandasDataFrameMarkGraph.pdf
+
+What to turn in:
+Just turn in the script (moving_average_crossover_simple_incomplete.py) with the missing lines filled in and all the data needed to run it (the script), all in a folder, zipped, with your name on the zip file name as per instructions.

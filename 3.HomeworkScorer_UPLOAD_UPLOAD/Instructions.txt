@@ -1,0 +1,10 @@
+The instructions are inside the Python scrypt (.py) files.
+Read the entire file to the end before you start.
+Each homework has an answer given in Results_
+The answers are unique and fixed by the line:
+
+np.random.seed() #to fix the results
+
+If your answer differs from the one we have given, 
+that is ok, as long as it is within reason.
+Always compare your answer to ours to make sure you understood.
